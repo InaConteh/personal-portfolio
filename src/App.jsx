@@ -19,6 +19,7 @@ function App() {
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
+          <a href="/Resume.pdf" download="Ina-Moses-Conteh-Resume.pdf" className="btn btn--primary">Download Resume</a>
         </nav>
       </header>
 
