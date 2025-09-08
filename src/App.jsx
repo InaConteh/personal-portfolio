@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+
+import Hero from './sections/Hero'
+import About from './sections/About'
+import Skills from './sections/Skills'
+import Projects from './sections/Projects'
+import Contact from './sections/Contact'
 import './App.css'
+import useScrollReveal from './hooks/useScrollReveal'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  useScrollReveal()
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className="site-header">
+        <nav className="nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+
+      <footer className="site-footer">
+        <small>© {new Date().getFullYear()} Ina Moses Conteh</small>
+      </footer>
     </>
   )
 }
