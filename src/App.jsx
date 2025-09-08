@@ -1,5 +1,6 @@
 
 
+import { useState } from 'react'
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Skills from './sections/Skills'
@@ -9,7 +10,16 @@ import './App.css'
 import useScrollReveal from './hooks/useScrollReveal'
 
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   useScrollReveal()
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
   return (
     <>
       <header className="site-header">

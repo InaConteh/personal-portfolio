@@ -24,9 +24,12 @@ export default function useScrollReveal() {
         const elements = gsapRef.utils.toArray('.reveal-up')
         elements.forEach((el) => {
           const ctx = gsapRef.context(() => {
-            gsapRef.from(el, {
+            gsapRef.fromTo(el, {
               y: 24,
               opacity: 0,
+            }, {
+              y: 0,
+              opacity: 1,
               duration: 0.6,
               ease: 'power2.out',
               scrollTrigger: {
@@ -38,6 +41,63 @@ export default function useScrollReveal() {
           }, el)
           cleanups.push(() => ctx.revert())
         })
+
+        // Hero section animations
+        const heroElements = gsapRef.utils.toArray('.hero .reveal-up')
+        if (heroElements.length > 0) {
+          const ctx = gsapRef.context(() => {
+            // Animate hero elements with staggered timing
+            gsapRef.fromTo(heroElements, {
+              y: 50,
+              opacity: 0,
+              scale: 0.9,
+            }, {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              duration: 0.8,
+              ease: 'power3.out',
+              stagger: 0.2,
+              delay: 0.3,
+            })
+
+            // Animate hero title with special effect
+            const heroTitle = document.querySelector('.hero__title')
+            if (heroTitle) {
+              gsapRef.fromTo(heroTitle, {
+                y: 80,
+                opacity: 0,
+                rotationX: -30,
+                transformPerspective: 400,
+              }, {
+                y: 0,
+                opacity: 1,
+                rotationX: 0,
+                duration: 1.2,
+                ease: 'power3.out',
+                delay: 0.5,
+              })
+            }
+
+            // Animate hero actions with bounce effect
+            const heroActions = document.querySelector('.hero__actions')
+            if (heroActions) {
+              gsapRef.fromTo(heroActions, {
+                y: 40,
+                opacity: 0,
+                scale: 0.8,
+              }, {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: 'back.out(1.7)',
+                delay: 1.2,
+              })
+            }
+          }, document.querySelector('.hero'))
+          cleanups.push(() => ctx.revert())
+        }
 
         // Helper to animate a group with a single trigger and stagger
         const animateStagger = (containerSelector, itemSelector) => {
@@ -83,11 +143,15 @@ export default function useScrollReveal() {
           el.dataset.split = 'true'
 
           const ctx = gsapRef.context(() => {
-            gsapRef.from(el.querySelectorAll('.char'), {
+            gsapRef.fromTo(el.querySelectorAll('.char'), {
               y: 30,
               opacity: 0,
               rotateX: -30,
               transformPerspective: 400,
+            }, {
+              y: 0,
+              opacity: 1,
+              rotateX: 0,
               duration: 0.6,
               ease: 'power3.out',
               stagger: 0.03,

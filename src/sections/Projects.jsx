@@ -8,10 +8,10 @@ const sampleProjects = [
     link: 'https://example.com',
   },
   {
-    title: 'Todo App',
-    description: 'A simple todo app with local storage persistence.',
-    tags: ['JavaScript', 'LocalStorage'],
-    link: 'https://example.com',
+    title: 'Vulture',
+    description: 'An electric car company.',
+    tags: ['JavaScript', 'Html','Css'],
+    link: 'https://volture-red.vercel.app/',
   },
 ]
 
