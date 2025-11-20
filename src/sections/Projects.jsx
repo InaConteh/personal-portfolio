@@ -1,28 +1,32 @@
 import ProjectCard from '../components/ProjectCard'
 
-const sampleProjects = [
+const projects = [
   {
-    title: 'Portfolio Website',
-    description: 'A responsive portfolio built with React and Vite.',
+    title: 'Joe Abass Website',
+    description: 'A responsive portfolio website built with React and Vite.',
     tags: ['React', 'Vite', 'CSS'],
-    link: 'https://example.com',
+    link: 'https://job-abass-website.vercel.app/',
+    image: 'Joe.PNG'
   },
   {
     title: 'Vulture',
-    description: 'An electric car company.',
-    tags: ['JavaScript', 'Html','Css'],
+    description: 'An electric car company website with interactive 3D elements.',
+    tags: ['JavaScript', 'HTML', 'CSS', 'Spline'],
     link: 'https://volture-red.vercel.app/',
+    image: 'image.png',
   },
 ]
 
 export default function Projects() {
   return (
     <section id="projects" className="section">
-      <h2 className="reveal-up">Projects</h2>
+      <h2 className="reveal-up section__title">
+        <span className="section__title-accent">03.</span> Projects
+      </h2>
       <div className="projects-grid">
-        {sampleProjects.map((p) => (
-          <ProjectCard key={p.title} {...p} />)
-        )}
+        {projects.map((project) => (
+          <ProjectCard key={project.title} {...project} />
+        ))}
       </div>
     </section>
   )
