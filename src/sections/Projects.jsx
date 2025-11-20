@@ -15,6 +15,13 @@ const projects = [
     link: 'https://volture-red.vercel.app/',
     image: 'image.png',
   },
+  {
+    title: 'FootBall Agency',
+    description: 'This a local football Agency website in sierra Leone.',
+    tags: ['JavaScript', 'HTML', 'CSS', 'Spline'],
+    link: 'https://foot-ball-agency.vercel.app/',
+    image: 'FootBall.PNG',
+  }
 ]
 
 export default function Projects() {
