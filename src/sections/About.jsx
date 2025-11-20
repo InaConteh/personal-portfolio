@@ -25,11 +25,11 @@ export default function About() {
             share knowledge with the community.
           </p>
           <p className="reveal-up about-card__text">
-            I am also a chess enthusiast and I love to play chess.
+          I’m a chess enthusiast, and I genuinely enjoy playing the game.
           </p>
           <div className="about-card__stats reveal-up">
             <div className="stat-item">
-              <span className="stat-item__number">100+</span>
+              <span className="stat-item__number">10+</span>
               <span className="stat-item__label">Projects</span>
             </div>
             <div className="stat-item">
@@ -37,7 +37,7 @@ export default function About() {
               <span className="stat-item__label">Contributions</span>
             </div>
             <div className="stat-item">
-              <span className="stat-item__number">3+</span>
+              <span className="stat-item__number">2+</span>
               <span className="stat-item__label">Years Experience</span>
             </div>
           </div>
