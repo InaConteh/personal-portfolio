@@ -21,6 +21,13 @@ const projects = [
     tags: ['JavaScript', 'HTML', 'CSS', 'Spline'],
     link: 'https://foot-ball-agency.vercel.app/',
     image: 'FootBall.PNG',
+  },
+  {
+    title: 'Team Brain',
+    description: 'This a website for a company that provides a platform for students to learn and grow.',
+    tags: ['JavaScript', 'TypeScript', 'Tailwind CSS', 'React'],
+    link: 'https://team-brain-ed.vercel.app/',
+    image: 'teamBrain.PNG',
   }
 ]
 
