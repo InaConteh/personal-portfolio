@@ -505,7 +505,6 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   text-transform: uppercase; 
   font-size: .9rem;
   text-shadow: 0 0 20px var(--accent-glow);
-  animation: fadeInUp 0.8s ease-out;
 }
 .hero__title { 
   margin: 0; 
@@ -578,12 +577,6 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .btn--primary:hover {
   background: #5a8fff;
   box-shadow: 0 6px 20px var(--accent-glow);
-}
-
-/* Hero animation initial states */
-.hero .reveal-up { 
-  opacity: 0; 
-  transform: translateY(30px); 
 }
 
 /* Responsive Hero */
