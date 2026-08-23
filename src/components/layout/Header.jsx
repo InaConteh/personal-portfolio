@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import { NAV_LINKS, SOCIAL_LINKS } from '../../constants'
 
 export default function Header() {
@@ -10,11 +11,22 @@ export default function Header() {
   return (
     <header className="site-header">
       <nav className="nav">
+        <Link to="/" className="nav__brand" onClick={closeMobileMenu}>
+          <span className="nav__brand-icon">♔</span>
+          <span>Ina Moses Conteh</span>
+        </Link>
+
         <div className="nav__desktop">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} onClick={closeMobileMenu}>
+            <NavLink
+              key={link.href}
+              to={link.href}
+              className={({ isActive }) => (isActive ? 'nav__link nav__link--active' : 'nav__link')}
+              onClick={closeMobileMenu}
+              end={link.href === '/'}
+            >
               {link.label}
-            </a>
+            </NavLink>
           ))}
           <a
             href={SOCIAL_LINKS.github}
@@ -53,9 +65,15 @@ export default function Header() {
           </button>
           <div className={`nav__mobile-menu ${isMobileMenuOpen ? 'nav__mobile-menu--open' : ''}`}>
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} onClick={closeMobileMenu}>
+              <NavLink
+                key={link.href}
+                to={link.href}
+                className={({ isActive }) => (isActive ? 'nav__link nav__link--active' : 'nav__link')}
+                onClick={closeMobileMenu}
+                end={link.href === '/'}
+              >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
             <a href="/Ina.pdf" download="Ina-Moses-Conteh-Resume.pdf" className="btn btn--primary">Download Resume</a>
           </div>
