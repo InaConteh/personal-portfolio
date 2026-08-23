@@ -44,24 +44,30 @@ export default function HomePage() {
       {/* Tech Stack & Expertise (Embedded Skills Section) */}
       <Skills />
 
-      {/* Featured Projects Highlight Section */}
+      {/* Real-World Projects Showcase Section */}
       <section className="section home-featured-projects">
         <div className="section__header">
-          <span className="section__subtitle">Selected Deployments</span>
+          <span className="section__subtitle">Real-World Deployments</span>
           <h2 className="section__title">
             <span className="section__title-accent">03.</span> Featured Projects & Case Studies
           </h2>
           <p className="section__desc">
-            Explore deep-dive technical breakdowns of real-world full stack platforms, 3D interactive interfaces, and regional web applications.
+            Explore deep-dive technical video breakdowns and live production deployments crafted for real-world clients and regional impact.
           </p>
         </div>
 
+        {/* Video Showcase (Salone Water Watch) */}
+        <div className="projects-grid projects-grid--single" style={{ marginBottom: '2.5rem' }}>
+          <ProjectCard project={PROJECTS[0]} onOpenCaseStudy={setActiveCaseStudy} />
+        </div>
+
+        {/* Deployed Real-World Projects Grid */}
         <div className="projects-grid">
-          {featuredProjects.map((project) => (
+          {PROJECTS.slice(1).map((project) => (
             <ProjectCard 
-              key={project.id || project.title} 
+              key={project.id} 
               project={project} 
-              onOpenCaseStudy={setActiveCaseStudy}
+              onOpenCaseStudy={setActiveCaseStudy} 
             />
           ))}
         </div>

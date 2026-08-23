@@ -36,15 +36,36 @@ export const STRATEGIC_PRINCIPLES = [
 
 export const PROJECTS = [
   {
+    id: 'salone-water-watch',
+    title: 'Salone Water Watch',
+    subtitle: 'Environmental & Water Resource Monitoring Platform',
+    description: 'A real-time environmental monitoring web platform tracking clean water access, water utility metrics, and community reporting across Sierra Leone.',
+    tags: ['React', 'Node.js', 'GeoJSON', 'Data Visualization', 'Sierra Leone'],
+    video: 'Salone Water Watch.mp4',
+    highlight: 'Featured Video Showcase',
+    caseStudy: {
+      title: 'Salone Water Watch System Architecture',
+      tagline: 'Tracking clean water distribution and community utility reporting across Sierra Leone in real time.',
+      problem: 'Communities and regional stakeholders lacked a centralized, transparent platform to monitor water point functionality, contamination alerts, and utility infrastructure performance across Sierra Leone.',
+      architecture: 'Engineered with React and Node.js data pipelines processing geospatial telemetry and community reports. Features interactive SVG/Canvas mapping, dynamic filtering, and low-latency status updates optimized for regional network conditions.',
+      keyFeatures: [
+        'Geospatial water point mapping with real-time operational status indicators.',
+        'Community incident reporting & water quality alert escalation pipelines.',
+        'Interactive telemetry dashboard for regional utility performance metrics.',
+        'Low-bandwidth mobile data sync designed for 3G regional connections.'
+      ],
+      impact: 'Unified water infrastructure monitoring across key municipalities, enabling faster utility repairs and transparent community access data.'
+    }
+  },
+  {
     id: 'joe-abass-website',
     title: 'Joe Abass Website',
     subtitle: 'Custom Portfolio Platform',
-    description: 'A sleek, responsive portfolio web application crafted with React and Vite. Features dynamic asset rendering, fluid micro-interactions, and accessible layout structure.',
+    description: 'A sleek, responsive personal portfolio web application crafted with React and Vite. Features dynamic asset rendering, fluid micro-interactions, and accessible layout structure.',
     tags: ['React', 'Vite', 'CSS3', 'GSAP'],
     link: 'https://job-abass-website.vercel.app/',
-    github: 'https://github.com/InaConteh',
     image: 'Joe.PNG',
-    highlight: 'Featured Platform',
+    highlight: 'Deployed Client Site',
     caseStudy: {
       title: 'Joe Abass Personal Portfolio Architecture',
       tagline: 'Crafting a high-performance personal brand experience with smooth animations and zero layout shifts.',
@@ -66,9 +87,8 @@ export const PROJECTS = [
     description: 'An immersive landing experience for an electric vehicle manufacturer incorporating interactive 3D Spline models, parallax scrolling depth, and custom dark mode aesthetics.',
     tags: ['JavaScript', 'HTML5', 'CSS3', 'Spline 3D'],
     link: 'https://volture-red.vercel.app/',
-    github: 'https://github.com/InaConteh',
     image: 'image.png',
-    highlight: '3D Interactive',
+    highlight: '3D WebGL Showcase',
     caseStudy: {
       title: 'Vulture EV 3D Web Experience',
       tagline: 'Bringing electric vehicle hardware to life on the web through interactive WebGL rendering.',
@@ -90,9 +110,8 @@ export const PROJECTS = [
     description: 'A modern web platform dedicated to highlighting professional football talent, club rosters, and regional match updates in Sierra Leone.',
     tags: ['JavaScript', 'HTML5', 'CSS3', 'UI/UX'],
     link: 'https://foot-ball-agency.vercel.app/',
-    github: 'https://github.com/InaConteh',
     image: 'FootBall.PNG',
-    highlight: 'Regional Portal',
+    highlight: 'Regional Sports Portal',
     caseStudy: {
       title: 'Sierra Leone Football Talent Platform',
       tagline: 'Bridging local football talent with international scouts through a centralized web portal.',
@@ -114,9 +133,8 @@ export const PROJECTS = [
     description: 'An educational dashboard providing students and mentors with real-time course tracking, interactive study modules, and peer collaboration tools.',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js'],
     link: 'https://team-brain-ed.vercel.app/',
-    github: 'https://github.com/InaConteh',
     image: 'teamBrain.PNG',
-    highlight: 'EdTech App',
+    highlight: 'Deployed EdTech App',
     caseStudy: {
       title: 'Team Brain Collaborative Learning Suite',
       tagline: 'Empowering students through structured peer learning and real-time progress analytics.',
@@ -129,54 +147,6 @@ export const PROJECTS = [
         'Clean dashboard UI using custom modular design tokens.'
       ],
       impact: 'Streamlined study tracking for over 200 active learners with sub-100ms API response times.'
-    }
-  },
-  {
-    id: 'chess-tactical-analyzer',
-    title: 'Chess Tactical Analyzer',
-    subtitle: 'Strategic Position & Engine Dashboard',
-    description: 'A specialized dashboard interface for analyzing chess positions, tracking opening repertoires, and visualizing tactical calculations.',
-    tags: ['React', 'TypeScript', 'Canvas API', 'WebSockets'],
-    link: 'https://github.com/InaConteh',
-    github: 'https://github.com/InaConteh',
-    image: 'Joe.PNG',
-    highlight: 'Strategic Tool',
-    caseStudy: {
-      title: 'Chess Engine Tactical Dashboard',
-      tagline: 'Visualizing evaluation candidate lines and positional strategy in real time.',
-      problem: 'Chess engines output raw evaluation data that can be difficult for human players to parse into actionable strategic insight without visual move trees.',
-      architecture: 'Canvas API board renderer connected to Web Worker engine instances, computing candidate moves off the main thread to guarantee smooth 60 FPS rendering.',
-      keyFeatures: [
-        'Interactive FEN string loader and board state builder.',
-        'Visual evaluation graph showing positional advantage transitions.',
-        'Opening book explorer with master game percentage win rates.',
-        'Tactical puzzle generator with instant solution verification.'
-      ],
-      impact: 'Used by local chess enthusiasts to systematically analyze and improve opening preparation.'
-    }
-  },
-  {
-    id: 'agency-hub-suite',
-    title: 'Agency Hub Suite',
-    subtitle: 'Full Stack Client Management Portal',
-    description: 'A comprehensive operational dashboard for creative agencies featuring project milestones, real-time analytics, client invoicing, and custom theme presets.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Express'],
-    link: 'https://github.com/InaConteh',
-    github: 'https://github.com/InaConteh',
-    image: 'teamBrain.PNG',
-    highlight: 'Enterprise Solution',
-    caseStudy: {
-      title: 'Agency Hub Client & Operations Management',
-      tagline: 'Unifying client deliverables, billing metrics, and project pipelines into a single interface.',
-      problem: 'Creative agencies often juggle separate tools for invoices, client updates, and asset approvals, leading to miscommunication and delayed payouts.',
-      architecture: 'Full stack React + Node.js/Express application backed by a normalized PostgreSQL database schema enforcing relational integrity and indexed search queries.',
-      keyFeatures: [
-        'Role-based access control (Admin, Project Manager, Client).',
-        'Automated milestone billing calculator and PDF invoice exporter.',
-        'Kanban task board with real-time status updates.',
-        'Customizable theme engine for white-labeled client portals.'
-      ],
-      impact: 'Reduced administrative overhead by 35% across multi-client project deployments.'
     }
   }
 ]

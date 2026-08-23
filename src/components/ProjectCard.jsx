@@ -1,8 +1,12 @@
 import ChessCard from './ChessCard'
+import VideoCaseStudy from './VideoCaseStudy'
 
-export default function ProjectCard({ project, onOpenCaseStudy, title, subtitle, description, tags = [], link, image, highlight }) {
-  // Support passing either a project prop or individual props
-  const p = project || { title, subtitle, description, tags, link, image, highlight }
+export default function ProjectCard({ project, onOpenCaseStudy, title, subtitle, description, tags = [], link, image, video, highlight }) {
+  const p = project || { title, subtitle, description, tags, link, image, video, highlight }
+
+  if (p.video) {
+    return <VideoCaseStudy project={p} />
+  }
 
   return (
     <ChessCard className="project-card">
@@ -66,4 +70,5 @@ export default function ProjectCard({ project, onOpenCaseStudy, title, subtitle,
     </ChessCard>
   )
 }
+
 

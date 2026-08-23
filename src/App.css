@@ -1074,6 +1074,239 @@ p {
   gap: 2rem;
 }
 
+.projects-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Video Case Study Component */
+.video-case-study-wrapper {
+  width: 100%;
+}
+
+.video-case-study-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.vcs-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vcs-header__top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.vcs-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--accent);
+}
+
+.vcs-subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.vcs-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--fg);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.vcs-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  max-width: 800px;
+  margin: 0;
+}
+
+.vcs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.vcs-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-xs);
+}
+
+.vcs-media-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.vcs-media__frame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  background: #000000;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.vcs-video-element {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  display: block;
+  outline: none;
+  background: #000000;
+}
+
+.vcs-media__caption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.vcs-breakdown {
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.vcs-breakdown__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.vcs-breakdown__subtitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.vcs-breakdown__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0;
+}
+
+.vcs-breakdown__tagline {
+  font-size: 1rem;
+  color: var(--fg-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+.vcs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.vcs-block {
+  padding: 1.5rem;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vcs-block--wide {
+  grid-column: 1 / -1;
+}
+
+.vcs-block--impact {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(0, 0, 0, 0.3));
+  border-color: var(--border-gold);
+}
+
+.vcs-block__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.vcs-block__icon {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+
+.vcs-block__header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin: 0;
+}
+
+.vcs-block p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+.vcs-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.vcs-features-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--fg);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+}
+
+.vcs-check-icon {
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .project-card {
   padding: 0;
   overflow: hidden;
