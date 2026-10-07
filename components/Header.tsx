@@ -21,12 +21,20 @@ export default function Header() {
   useEffect(() => setOpen(false), [pathname])
   useEffect(() => {
     if (!open) return
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return
+      setOpen(false)
+      document.querySelector<HTMLElement>('.nav__toggle')?.focus()
+    }
     window.addEventListener('keydown', onKey)
     document.documentElement.style.overflow = 'hidden'
+    // The drawer covers the page, so keep keyboard focus out of what's underneath it.
+    const covered = [document.getElementById('main'), document.querySelector('footer')]
+    covered.forEach((el) => el?.setAttribute('inert', ''))
     return () => {
       window.removeEventListener('keydown', onKey)
       document.documentElement.style.overflow = ''
+      covered.forEach((el) => el?.removeAttribute('inert'))
     }
   }, [open])
 
