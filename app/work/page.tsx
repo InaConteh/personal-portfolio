@@ -39,7 +39,7 @@ export default function WorkPage() {
           fallback={
             <div className="work-grid">
               {projects.map((project) => (
-                <WorkCard key={project.slug} project={project} />
+                <WorkCard key={project.slug} project={project} headingLevel={2} />
               ))}
             </div>
           }

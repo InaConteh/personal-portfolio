@@ -61,7 +61,7 @@ export default function WorkFilter({ projects }: { projects: Project[] }) {
                 exit={{ opacity: 0, scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 180, damping: 22 }}
               >
-                <WorkCard project={project} priority={i < 2} />
+                <WorkCard project={project} priority={i < 2} headingLevel={2} />
               </motion.div>
             ))}
           </AnimatePresence>

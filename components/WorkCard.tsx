@@ -5,7 +5,16 @@ import { TAG_LABELS } from '@/lib/site'
 
 const TAG_COLOR = { code: 'var(--teal)', design: 'var(--purple)', motion: 'var(--pink)' } as const
 
-export default function WorkCard({ project, priority = false }: { project: Project; priority?: boolean }) {
+export default function WorkCard({
+  project,
+  priority = false,
+  headingLevel = 3,
+}: {
+  project: Project
+  priority?: boolean
+  headingLevel?: 2 | 3
+}) {
+  const Heading = headingLevel === 2 ? 'h2' : 'h3'
   return (
     <Link href={`/work/${project.slug}`} className="work-card">
       <div className="work-card__media">
@@ -32,7 +41,7 @@ export default function WorkCard({ project, priority = false }: { project: Proje
             ))}
           </span>
         </div>
-        <h3 className="work-card__title">{project.title}</h3>
+        <Heading className="work-card__title">{project.title}</Heading>
         <p className="work-card__desc">{project.summary}</p>
         <span className="work-card__cta mono">
           Read case study <span className="arrow" aria-hidden="true">→</span>
