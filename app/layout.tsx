@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="backdrop" aria-hidden="true" />
         <Providers>
           <Header />
-          <main id="main" className="main-content">
+          <main id="main" className="main-content" tabIndex={-1}>
             {children}
           </main>
           <Footer />
