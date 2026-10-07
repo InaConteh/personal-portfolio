@@ -848,8 +848,30 @@ a:hover > .arrow {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
-  transition: transform 900ms var(--ease);
+  /* Site screenshots keep their logo and nav at the top left. */
+  object-position: left top;
+  /* Light client UIs glare against the dark page; settle them until hover. */
+  filter: brightness(0.82) saturate(0.95);
+  transition: transform 900ms var(--ease), filter var(--normal) ease;
+}
+
+.work-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 17, 23, 0.55), transparent 45%);
+  pointer-events: none;
+  transition: opacity var(--normal) ease;
+}
+
+.work-card:hover .work-card__media img,
+.work-card:focus-visible .work-card__media img {
+  filter: none;
+}
+
+.work-card:hover .work-card__media::after,
+.work-card:focus-visible .work-card__media::after {
+  opacity: 0;
 }
 
 .work-card:hover .work-card__media img {
@@ -2190,4 +2212,35 @@ a.contact-list__value:hover {
 .field [aria-invalid='true']:focus {
   border-color: #ff7a8c;
   box-shadow: 0 0 0 3px rgba(255, 122, 140, 0.18);
+}
+
+/* The box-shadow focus ring vanishes in forced-colors mode; a transparent outline doesn't. */
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* <main> takes focus from the skip link; it shouldn't draw a ring around the whole page. */
+main:focus {
+  outline: none;
+}
+
+/* Keep big titles from leaving a lone word on the last line. */
+.hero__title,
+.page-hero__title,
+.section__title,
+.cta__title,
+.closing__title,
+.work-card__title,
+.feature__title {
+  text-wrap: balance;
+}
+
+.page-hero__lead,
+.section__lead,
+.hero__lead,
+.prose p {
+  text-wrap: pretty;
 }

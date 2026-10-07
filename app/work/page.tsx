@@ -34,7 +34,10 @@ export default function WorkPage() {
         </Reveal>
       </header>
 
-      <section className="section section--tight" aria-label="Projects">
+      <section className="section section--tight" aria-labelledby="projects-title">
+        <h2 id="projects-title" className="sr-only">
+          Projects
+        </h2>
         <Suspense
           fallback={
             <div className="work-grid">

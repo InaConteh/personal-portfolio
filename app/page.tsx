@@ -109,12 +109,11 @@ export default function HomePage() {
         </section>
       )}
 
-      <div className="marquee" aria-label="Tools I use">
-        <div className="marquee__track">
+      <div className="marquee">
+        <p className="sr-only">Tools I use: {TOOLS.join(', ')}.</p>
+        <div className="marquee__track" aria-hidden="true">
           {[...TOOLS, ...TOOLS].map((tool, i) => (
-            <span key={`${tool}-${i}`} aria-hidden={i >= TOOLS.length}>
-              {tool}
-            </span>
+            <span key={`${tool}-${i}`}>{tool}</span>
           ))}
         </div>
       </div>
