@@ -493,6 +493,8 @@ a:hover > .arrow {
     opacity: 1;
     transform: none;
     visibility: visible;
+    /* Become visible at once so focus can move into the drawer on open. */
+    transition: opacity var(--normal) ease, transform var(--normal) var(--ease), visibility 0s;
   }
 
   .nav__drawer .nav__link {
@@ -975,6 +977,40 @@ a:hover > .arrow {
   width: 100%;
   height: auto;
   background: #000;
+}
+
+/* Wrapper for AutoVideo so its pause button can sit over the frame. */
+.auto-video {
+  position: relative;
+  height: 100%;
+}
+
+.auto-video__toggle {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: rgba(7, 8, 12, 0.72);
+  color: var(--fg);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background var(--fast) ease;
+}
+
+.auto-video__toggle:hover {
+  background: rgba(7, 8, 12, 0.9);
+}
+
+/* In the phone frame the reel's own caption runs along the bottom. */
+.phone .auto-video__toggle {
+  top: 2.25rem;
+  bottom: auto;
+  right: 1rem;
 }
 
 /* Featured (video) case study */
@@ -1944,7 +1980,7 @@ a.contact-list__value:hover {
 }
 
 .filter__count {
-  color: var(--dim);
+  color: var(--muted);
   font-size: 0.72rem;
 }
 
@@ -2243,4 +2279,35 @@ main:focus {
 .hero__lead,
 .prose p {
   text-wrap: pretty;
+}
+
+/* Touch screens: keep tap targets at 44px or more (WCAG 2.5.5). */
+@media (pointer: coarse) {
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-inline: 8px;
+    margin-inline: -8px;
+  }
+
+  .btn--sm,
+  .filter__btn {
+    min-height: 44px;
+  }
+
+  .footer__links {
+    gap: 0 1.5rem;
+  }
+
+  .footer__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .next-project__link {
+    display: inline-block;
+    padding-block: 0.35rem;
+  }
 }

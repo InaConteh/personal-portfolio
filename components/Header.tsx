@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { NAV_LINKS } from '@/lib/site'
@@ -9,6 +9,8 @@ export default function Header() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -19,12 +21,31 @@ export default function Header() {
 
   // Close the drawer on navigation and on Escape.
   useEffect(() => setOpen(false), [pathname])
+  // While open, move focus into the drawer and keep Tab inside the header so it
+  // can't reach the page hidden behind it; Escape hands focus back to the toggle.
   useEffect(() => {
     if (!open) return
+    const header = headerRef.current
+    header?.querySelector<HTMLElement>('#nav-drawer a')?.focus()
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return
-      setOpen(false)
-      document.querySelector<HTMLElement>('.nav__toggle')?.focus()
+      if (e.key === 'Escape') {
+        setOpen(false)
+        toggleRef.current?.focus()
+        return
+      }
+      if (e.key !== 'Tab' || !header) return
+      const focusable = [...header.querySelectorAll<HTMLElement>('a[href], button')].filter(
+        (el) => el.offsetParent !== null,
+      )
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
     }
     window.addEventListener('keydown', onKey)
     document.documentElement.style.overflow = 'hidden'
@@ -52,9 +73,9 @@ export default function Header() {
   ))
 
   return (
-    <header className={`site-header${scrolled || open ? ' site-header--scrolled' : ''}`}>
+    <header ref={headerRef} className={`site-header${scrolled || open ? ' site-header--scrolled' : ''}`}>
       <nav className="container nav" aria-label="Main">
-        <Link href="/" className="logo" aria-label="Ina Conteh, home">
+        <Link href="/" className="logo" aria-label="IC, Ina Conteh, home">
           IC<span className="dot">.</span>
         </Link>
 
@@ -65,6 +86,7 @@ export default function Header() {
             Let&apos;s talk <span className="arrow" aria-hidden="true">→</span>
           </Link>
           <button
+            ref={toggleRef}
             type="button"
             className="nav__toggle"
             aria-expanded={open}
@@ -79,7 +101,11 @@ export default function Header() {
       </nav>
 
       <div id="nav-drawer" className={`nav__drawer${open ? ' is-open' : ''}`} inert={!open}>
-        <Link href="/" className={`nav__link${pathname === '/' ? ' is-active' : ''}`}>
+        <Link
+          href="/"
+          className={`nav__link${pathname === '/' ? ' is-active' : ''}`}
+          aria-current={pathname === '/' ? 'page' : undefined}
+        >
           Home
         </Link>
         {links}

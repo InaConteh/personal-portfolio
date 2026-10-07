@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <div className="footer__row">
-          <Link href="/" className="logo" aria-label="Ina Conteh, home">
+          <Link href="/" className="logo" aria-label="IC, Ina Conteh, home">
             IC<span className="dot">.</span>
           </Link>
           <nav className="footer__links" aria-label="Footer">
@@ -16,10 +16,10 @@ export default function Footer() {
               </Link>
             ))}
             <a href={PROFILE.cvUrl} download="Ina-Conteh-CV.pdf">
-              CV ↓
+              CV <span aria-hidden="true">↓</span>
             </a>
             <a href={PROFILE.socials.github} target="_blank" rel="noopener noreferrer">
-              GitHub ↗
+              GitHub <span aria-hidden="true">↗</span>
             </a>
             <a href={`mailto:${PROFILE.email}`}>Email</a>
           </nav>
