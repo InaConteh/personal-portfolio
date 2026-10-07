@@ -71,7 +71,7 @@ export default function Header() {
   return (
     <header ref={headerRef} className={`site-header${scrolled || open ? ' site-header--scrolled' : ''}`}>
       <nav className="container nav" aria-label="Main">
-        <Link href="/" className="logo" aria-label="Ina Conteh, home">
+        <Link href="/" className="logo" aria-label="IC, Ina Conteh, home">
           IC<span className="dot">.</span>
         </Link>
 
@@ -97,7 +97,11 @@ export default function Header() {
       </nav>
 
       <div id="nav-drawer" className={`nav__drawer${open ? ' is-open' : ''}`} inert={!open}>
-        <Link href="/" className={`nav__link${pathname === '/' ? ' is-active' : ''}`}>
+        <Link
+          href="/"
+          className={`nav__link${pathname === '/' ? ' is-active' : ''}`}
+          aria-current={pathname === '/' ? 'page' : undefined}
+        >
           Home
         </Link>
         {links}
