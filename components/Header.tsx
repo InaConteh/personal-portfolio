@@ -7,7 +7,15 @@ import { NAV_LINKS } from '@/lib/site'
 
 export default function Header() {
   const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  // The drawer remembers the page it was opened on, so navigating closes it
+  // without an effect (open is only true while we're still on that page).
+  const [openOn, setOpenOn] = useState<string | null>(null)
+  const open = openOn === pathname
+  const setOpen = (next: boolean | ((v: boolean) => boolean)) =>
+    setOpenOn((current) => {
+      const value = typeof next === 'function' ? next(current === pathname) : next
+      return value ? pathname : null
+    })
   const [scrolled, setScrolled] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
@@ -19,8 +27,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close the drawer on navigation and on Escape.
-  useEffect(() => setOpen(false), [pathname])
   // While open, move focus into the drawer and keep Tab inside the header so it
   // can't reach the page hidden behind it; Escape hands focus back to the toggle.
   useEffect(() => {
@@ -29,7 +35,7 @@ export default function Header() {
     header?.querySelector<HTMLElement>('#nav-drawer a')?.focus()
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setOpen(false)
+        setOpenOn(null)
         toggleRef.current?.focus()
         return
       }
